@@ -180,6 +180,6 @@ int main()
     }
     getchar();
     cout<<"Number of page-hits in Least Frequently Used --> "<<obj.page_hits<<endl;
-    cout<<"Number of page-faults in Least Frequently Used --> "<<obj.page_faults<<endl;
+    cout<<"Number of page-faults in Least Frequently Used --> "<<n-obj.page_hits<<endl;
     system("pause");
 }
