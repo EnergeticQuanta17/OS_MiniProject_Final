@@ -127,7 +127,7 @@ public:
     }
     
     void put(int page) {
-        if(m[page] != NULL) Delete(m[page]);
+        if(m.find(page) != m.end()) Delete(m[page]);
         else if(!cap) Delete(tail->prev);
         insert(page);
     }
