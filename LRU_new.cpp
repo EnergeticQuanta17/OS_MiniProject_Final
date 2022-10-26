@@ -119,11 +119,11 @@ public:
         t->prev->next=t->next;
         t->next->prev=t->prev;
         cap++;
-        m[t->val]=NULL;
+        m.erase(t->val);
     }
     
     void put(int value) {
-        if(m[value]!=NULL) Delete(m[value]);
+        if(m.find(value) != m.end()) Delete(m[value]);
         else if(!cap){
             cout<<"Page fault occurred... \n";
             Delete(tail->prev);
