@@ -217,6 +217,6 @@ int main()
         obj.print_pages();
     }
     cout<<"Number of page-hits in Largest Forward Distance --> "<<obj.page_hits<<endl;
-    cout<<"Number of page-faults in Largest Forward Distance --> "<<obj.page_faults<<endl;
+    cout<<"Number of page-faults in Largest Forward Distance --> "<<n-obj.page_hits<<endl;
     system("pause");
 }
