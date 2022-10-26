@@ -72,11 +72,14 @@ class LFD{
     public:
         vector<int> f;
         int cap,max_cap; 
+        int page_hits,page_faults;
         vector<vector<int>> v;
         LFD(int capacity)
         {
             max_cap=capacity;
             cap=capacity;
+            page_hits=0;
+            page_faults=0;
         }
         void insert(int page_no)
         {
@@ -162,13 +165,17 @@ class LFD{
                 if(f[i]==page_no)
                 {
                     present=i;
+                    page_hits++;
                     break;
                 }
             }
             if(present!=-1)
                 return;
             if(cap==0)
+            {
                 Delete(position);
+                page_faults++;
+            }
             
             insert(page_no);
         }
@@ -197,11 +204,11 @@ int main()
     cout<<"Enter the number of pages involved: ";
     cin>>n;
     
-    vector<int> v(10);
+    vector<int> v(n);
     for(int i=0;i<n;i++)
         cin>>v[i];
     
-    for(int i=0;i<10;i++)
+    for(int i=0;i<n;i++)
         obj.add_to_v(v[i],i);
     for(int i=0;i<n;i++)
     {
@@ -209,4 +216,6 @@ int main()
         cout<<"After "<<(i+1)<<" pages invoked: ";
         obj.print_pages();
     }
+    cout<<"Number of page-hits in Largest Forward Distance --> "<<obj.page_hits<<endl;
+    cout<<"Number of page-faults in Largest Forward Distance --> "<<obj.page_faults<<endl;
 }
