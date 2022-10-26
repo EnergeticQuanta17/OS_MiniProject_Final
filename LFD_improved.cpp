@@ -218,4 +218,5 @@ int main()
     }
     cout<<"Number of page-hits in Largest Forward Distance --> "<<obj.page_hits<<endl;
     cout<<"Number of page-faults in Largest Forward Distance --> "<<obj.page_faults<<endl;
+    system("pause");
 }
